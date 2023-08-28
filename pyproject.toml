@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "recipe-api"
+version = "1.0"
+description = "Recipe app backend."
+authors = ["Ray Luna <leon.luna.ray@gmail.com>"]
+readme = "README.md"
+packages = [{include = "recipe_api"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^4.2.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
