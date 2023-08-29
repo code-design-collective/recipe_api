@@ -38,7 +38,7 @@ FROM python:3.11
 WORKDIR /code
 COPY --from=requirements-stage /tmp/requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-COPY ./app /code/app
+COPY ./recipe_api /code/recipe_api
 
 # Start Gunicorn
 CMD ["gunicorn", "recipe_api.wsgi:application", "--bind", "0.0.0.0:8000"]
