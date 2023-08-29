@@ -5,7 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE 1
 
 WORKDIR /app
 RUN pip install poetry
-COPY ./pyproject.toml ./poetry.lock* /tmp/
+COPY ./pyproject.toml ./poetry.lock* /app/
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
 COPY . /app/
