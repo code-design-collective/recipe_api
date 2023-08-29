@@ -14,4 +14,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
 
-CMD gunicorn recipe_api.wsgi:application
+CMD ["gunicorn", "recipe_api.wsgi:application", "--bind", "0.0.0.0:8000"]
+
