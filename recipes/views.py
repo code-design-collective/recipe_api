@@ -34,6 +34,7 @@ def recipe_detail(request, pk):
 def recipe_create(request):
     print('RECIPE CREATE')
     if request.method == 'POST':
+        print(request.body)
         data = json.loads(request.body)
         print(request.body)
         form = RecipeForm(data)
