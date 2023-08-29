@@ -26,7 +26,7 @@ FROM python:3.11
 WORKDIR /code
 COPY --from=requirements-stage /tmp/requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
-# COPY ./recipe_api /code/recipe_api
+COPY ./recipe_api /code/recipe_api
 # RUN python manage.py collectstatic --noinput --clear
 
 # Start Gunicorn
