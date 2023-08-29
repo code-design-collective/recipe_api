@@ -5,14 +5,6 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHONIOENCODING utf8
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get -y update && \
-    apt-get -y upgrade && \
-    apt-get -y install --no-install-recommends \
-        build-essential && \
-    apt-get clean && \
-    apt-get autoremove && \
-    rm -rf /var/lib/apt/lists/*
-
 WORKDIR /code/
 
 COPY ./manage.py ./manage.py
