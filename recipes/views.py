@@ -12,12 +12,14 @@ def index(request):
 
 @csrf_exempt
 def recipe_list(request):
+    print('RECIPE LIST')
     recipes = Recipe.objects.all()
     recipe_list = [{'id': recipe.id, 'title': recipe.title} for recipe in recipes]
     return JsonResponse(recipe_list, safe=False)
 
 @csrf_exempt
 def recipe_detail(request, pk):
+    print('RECIPE DETAIL')
     recipe = get_object_or_404(Recipe, pk=pk)
     recipe_data = {
         'id': recipe.id,
@@ -30,8 +32,10 @@ def recipe_detail(request, pk):
 
 @csrf_exempt
 def recipe_create(request):
+    print('RECIPE CREATE')
     if request.method == 'POST':
         data = json.loads(request.body)
+        print(request.body)
         form = RecipeForm(data)
         if form.is_valid():
             form.save()
@@ -42,6 +46,7 @@ def recipe_create(request):
 
 @csrf_exempt
 def recipe_update(request, pk):
+    print('RECIPE UPDATE')
     recipe = get_object_or_404(Recipe, pk=pk)
     if request.method == 'PUT':
         data = json.loads(request.body)
@@ -55,6 +60,7 @@ def recipe_update(request, pk):
 
 @csrf_exempt
 def recipe_delete(request, pk):
+    print('RECIPE DELETE')
     recipe = get_object_or_404(Recipe, pk=pk)
     if request.method == 'DELETE':
         recipe.delete()
