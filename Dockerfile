@@ -9,6 +9,7 @@ WORKDIR /code
 COPY --from=requirements-stage /tmp/requirements.txt /code/requirements.txt
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY ./recipe_api /code/recipe_api
+# RUN python manage.py collectstatic --noinput --clear
 
 # Start Gunicorn
 CMD set -xe; python manage.py migrate --noinput; gunicorn lds_www.wsgi:application
