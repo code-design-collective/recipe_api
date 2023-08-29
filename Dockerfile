@@ -1,16 +1,31 @@
-FROM python:3.9-slim
+FROM python:3.9-slim-buster
 
+ENV VERSION=3.10
+ENV DEBIAN_FRONTEND noninteractive
+ENV PYTHONIOENCODING utf8
 ENV PYTHONUNBUFFERED 1
-ENV PYTHONDONTWRITEBYTECODE 1
 
-WORKDIR /app
-RUN pip install poetry
-COPY ./pyproject.toml ./poetry.lock* /tmp/
-RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+RUN apt-get -y update && \
+    apt-get -y upgrade && \
+    apt-get -y install --no-install-recommends \
+        build-essential && \
+    apt-get clean && \
+    apt-get autoremove && \
+    rm -rf /var/lib/apt/lists/*
 
-COPY . /app/
+WORKDIR /code/
 
-RUN pip install --no-cache-dir -r requirements.txt
+COPY ./manage.py ./manage.py
+COPY ./poetry.lock ./poetry.lock
+COPY ./pyproject.toml ./pyproject.toml
+COPY ./recipe_api/ ./recipe_api/
+# Move to apps dir
+COPY ./recipes/ ./recipes/
+COPY ./users/ ./users/
+
+RUN pip install poetry && \
+    poetry config virtualenvs.create false && \
+    poetry install --no-dev --no-interaction --no-ansi
 
 EXPOSE 8000
 
