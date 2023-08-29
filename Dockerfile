@@ -9,9 +9,9 @@ COPY ./pyproject.toml ./poetry.lock* /app/
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
 
 COPY . /app/
-
+RUN pip install "gunicorn==21.2.0"
 RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
 
-CMD gunicorn rl-net-api.wsgi:application
+CMD gunicorn recipe_api.wsgi:application
