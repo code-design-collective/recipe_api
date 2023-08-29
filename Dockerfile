@@ -4,13 +4,13 @@ ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
 
 WORKDIR /app
+RUN pip install "gunicorn==21.2.0"
 RUN pip install poetry
 COPY ./pyproject.toml ./poetry.lock* /app/
 RUN poetry export -f requirements.txt --output requirements.txt --without-hashes
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . /app/
-RUN pip install "gunicorn==21.2.0"
-RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 8000
 
