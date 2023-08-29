@@ -11,4 +11,4 @@ RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 COPY ./recipe_api /code/recipe_api
 
 # Start Gunicorn
-CMD ["gunicorn", "recipe_api.wsgi:application", "--bind", "0.0.0.0:8000"]
+CMD set -xe; python manage.py migrate --noinput; gunicorn lds_www.wsgi:application
