@@ -20,6 +20,6 @@ RUN pip install poetry && \
     poetry config virtualenvs.create false && \
     poetry install --no-dev --no-interaction --no-ansi
 
-EXPOSE 8000
+EXPOSE 8080
 
-CMD ["gunicorn", "--bind", "0.0.0.0:$(PORT)", "recipe_api.wsgi:application"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8080", "recipe_api.wsgi:application"]
