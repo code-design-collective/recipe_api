@@ -20,8 +20,6 @@ RUN pip install poetry && \
 
 EXPOSE 8080
 
-# CMD ["gunicorn", "--bind", "0.0.0.0:8080", "recipe_api.wsgi:application"]
-
 CMD set -xe; \
     python manage.py migrate --noinput; \
     gunicorn recipe_api.wsgi:application --bind 0.0.0.0:8080

@@ -1,0 +1,85 @@
+[
+    {
+        "id": 1,
+        "title": "Classic Spaghetti Bolognese",
+        "ingredients": "300g spaghetti\n200g ground beef\n1 onion, chopped\n2 cloves garlic, minced\n400g canned tomatoes\n1 tsp dried oregano\n1 tsp dried basil\nSalt and pepper to taste",
+        "instructions": "1. Cook spaghetti according to package instructions.\n2. In a skillet, brown the ground beef with onions and garlic.\n3. Add tomatoes, oregano, basil, salt, and pepper. Simmer for 20 minutes.\n4. Serve sauce over cooked spaghetti.",
+        "created_at": "2023-08-29T12:00:00"
+    },
+    {
+        "id": 2,
+        "title": "Chicken Stir-Fry",
+        "ingredients": "2 boneless, skinless chicken breasts\n1 red bell pepper, sliced\n1 yellow bell pepper, sliced\n1 cup broccoli florets\n2 carrots, julienned\n3 tbsp soy sauce\n2 tbsp hoisin sauce\n1 tsp ginger, minced\n2 cloves garlic, minced",
+        "instructions": "1. Cut chicken into bite-sized pieces and stir-fry until cooked. Remove from pan.\n2. Stir-fry peppers, broccoli, and carrots until tender-crisp.\n3. Return chicken to the pan, add soy sauce, hoisin sauce, ginger, and garlic. Cook briefly.\n4. Serve over cooked rice.",
+        "created_at": "2023-08-29T12:30:00"
+    },{
+        "id": 3,
+        "title": "Homemade Margherita Pizza",
+        "ingredients": "Pizza dough\n1/2 cup tomato sauce\n1 1/2 cups mozzarella cheese, shredded\nFresh basil leaves\nOlive oil\nSalt and pepper to taste",
+        "instructions": "1. Preheat oven to 450°F (230°C).\n2. Roll out pizza dough, spread tomato sauce, and top with cheese.\n3. Bake in the oven until crust is golden and cheese is melted.\n4. Remove from oven, drizzle with olive oil, and sprinkle with basil leaves, salt, and pepper.",
+        "created_at": "2023-08-29T13:00:00"
+    },
+    {
+        "id": 4,
+        "title": "Creamy Garlic Mashed Potatoes",
+        "ingredients": "4 large potatoes, peeled and cubed\n1/2 cup butter\n1/2 cup heavy cream\n4 cloves garlic, minced\nSalt and pepper to taste",
+        "instructions": "1. Boil potatoes until tender, then drain.\n2. In a saucepan, melt butter and add minced garlic. Sauté briefly.\n3. Mash potatoes and add garlic butter, heavy cream, salt, and pepper.\n4. Mix until creamy and serve.",
+        "created_at": "2023-08-29T13:30:00"
+    },
+    {
+        "id": 5,
+        "title": "Fresh Garden Salad",
+        "ingredients": "Mixed greens\nCherry tomatoes, halved\nCucumber, sliced\nRed onion, thinly sliced\nBalsamic vinaigrette dressing",
+        "instructions": "1. Toss mixed greens, cherry tomatoes, cucumber, and red onion in a bowl.\n2. Drizzle with balsamic vinaigrette dressing.\n3. Toss to coat the salad evenly and serve.",
+        "created_at": "2023-08-29T14:00:00"
+    },
+    {
+        "id": 6,
+        "title": "Grilled Lemon Herb Chicken",
+        "ingredients": "4 boneless chicken breasts\nJuice of 2 lemons\n2 tbsp olive oil\n2 cloves garlic, minced\n1 tsp dried thyme\n1 tsp dried rosemary\nSalt and pepper to taste",
+        "instructions": "1. In a bowl, mix lemon juice, olive oil, garlic, thyme, rosemary, salt, and pepper.\n2. Marinate chicken in the mixture for 30 minutes.\n3. Grill chicken over medium heat until fully cooked.\n4. Serve with your choice of sides.",
+        "created_at": "2023-08-29T14:30:00"
+    },
+    {
+        "id": 7,
+        "title": "Vegetable Stir-Fried Noodles",
+        "ingredients": "8 oz stir-fry noodles\nAssorted vegetables (bell peppers, carrots, broccoli)\n3 tbsp soy sauce\n2 tbsp oyster sauce\n1 tbsp sesame oil\n2 cloves garlic, minced\n1 tsp ginger, minced",
+        "instructions": "1. Cook stir-fry noodles according to package instructions.\n2. In a wok, heat sesame oil and sauté garlic and ginger.\n3. Add vegetables and stir-fry until tender-crisp.\n4. Toss in cooked noodles, soy sauce, and oyster sauce.\n5. Mix well and serve.",
+        "created_at": "2023-08-29T15:00:00"
+    },
+    {
+        "id": 8,
+        "title": "Chocolate Chip Cookies",
+        "ingredients": "2 1/4 cups all-purpose flour\n1/2 tsp baking soda\n1 cup unsalted butter, softened\n1/2 cup granulated sugar\n1 cup brown sugar, packed\n1 tsp vanilla extract\n2 large eggs\n2 cups chocolate chips",
+        "instructions": "1. Preheat oven to 375°F (190°C).\n2. In a bowl, combine flour and baking soda.\n3. In a separate bowl, beat butter, granulated sugar, brown sugar, and vanilla extract until creamy.\n4. Add eggs one at a time, beating well after each addition.\n5. Gradually mix in flour mixture, then stir in chocolate chips.\n6. Drop rounded tablespoons of dough onto baking sheets.\n7. Bake for 9-11 minutes or until golden brown.\n8. Cool on baking sheets for a few minutes before transferring to wire racks.",
+        "created_at": "2023-08-29T15:30:00"
+    },
+    {
+        "id": 9,
+        "title": "Creamy Tomato Basil Soup",
+        "ingredients": "2 tbsp olive oil\n1 onion, chopped\n2 cloves garlic, minced\n28 oz canned tomatoes\n2 cups vegetable broth\n1/2 cup heavy cream\n1/4 cup fresh basil leaves\nSalt and pepper to taste",
+        "instructions": "1. Heat olive oil in a pot, sauté onion and garlic until softened.\n2. Add canned tomatoes and vegetable broth, bring to a simmer.\n3. Use an immersion blender to blend the soup until smooth.\n4. Stir in heavy cream, basil leaves, salt, and pepper.\n5. Heat through and serve.",
+        "created_at": "2023-08-29T16:00:00"
+    },
+    {
+        "id": 10,
+        "title": "Spicy Shrimp Tacos",
+        "ingredients": "1 lb large shrimp, peeled and deveined\n2 tbsp olive oil\n1 tsp chili powder\n1/2 tsp cayenne pepper\n1/2 tsp cumin\n1/2 tsp paprika\nCorn tortillas\nSliced cabbage\nChopped cilantro\nLime wedges",
+        "instructions": "1. In a bowl, toss shrimp with olive oil and spices.\n2. Heat a skillet over medium-high heat, cook shrimp until pink and opaque.\n3. Warm corn tortillas and assemble tacos with shrimp, cabbage, cilantro, and lime.\n4. Serve with your favorite salsa.",
+        "created_at": "2023-08-29T16:30:00"
+    },
+    {
+        "id": 11,
+        "title": "Quinoa and Black Bean Salad",
+        "ingredients": "1 cup quinoa, rinsed\n2 cups water\n1 can (15 oz) black beans, drained and rinsed\n1 cup corn kernels\n1 red bell pepper, diced\n1/2 cup red onion, finely chopped\n1/4 cup fresh cilantro, chopped\nJuice of 2 limes\n2 tbsp olive oil\nSalt and pepper to taste",
+        "instructions": "1. In a pot, combine quinoa and water, bring to a boil and simmer until quinoa is cooked.\n2. In a large bowl, combine cooked quinoa, black beans, corn, bell pepper, onion, and cilantro.\n3. Whisk together lime juice, olive oil, salt, and pepper.\n4. Pour dressing over the salad and toss to combine.\n5. Refrigerate before serving.",
+        "created_at": "2023-08-29T17:00:00"
+    },
+    {
+        "id": 12,
+        "title": "Homestyle Beef Stew",
+        "ingredients": "1 lb beef stew meat, cubed\n2 tbsp olive oil\n1 onion, chopped\n2 cloves garlic, minced\n4 carrots, peeled and sliced\n3 potatoes, peeled and diced\n3 cups beef broth\n1 cup red wine (optional)\n1 tsp dried thyme\n1 tsp dried rosemary\nSalt and pepper to taste",
+        "instructions": "1. In a large pot, heat olive oil over medium-high heat.\n2. Brown beef stew meat in batches, then set aside.\n3. In the same pot, sauté onion and garlic until fragrant.\n4. Add carrots and potatoes, sauté for a few minutes.\n5. Return beef to the pot, add beef broth, wine, thyme, rosemary, salt, and pepper.\n6. Bring to a boil, then reduce heat and let simmer for 1.5 to 2 hours, until meat is tender.\n7. Serve hot and enjoy!",
+        "created_at": "2023-08-29T17:30:00"
+    }
+]

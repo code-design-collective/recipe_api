@@ -1,4 +1,5 @@
 import json
+from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_exempt
@@ -6,9 +7,12 @@ from .models import Recipe
 from .forms import RecipeForm
 
 @csrf_exempt
-def index(request):
-    response_data = {"message": "Hello, world. You're at the recipes endpoint."}
-    return JsonResponse(response_data)
+def examples(request):
+    json_file_path = settings.BASE_DIR / 'apps' / 'recipes' / 'sample.json'
+    with open(json_file_path, 'r') as json_file:
+        recipes = json.load(json_file)
+
+    return JsonResponse(recipes, safe=False)
 
 @csrf_exempt
 def recipe_list(request):
