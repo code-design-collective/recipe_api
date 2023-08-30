@@ -14,7 +14,8 @@ COPY ./README.md ./README.md
 COPY ./recipe_api/ ./recipe_api/
 COPY ./apps/ ./apps/
 
-RUN pip install poetry && \
+RUN apk add --no-cache postgresql-dev && \
+    pip install poetry && \
     poetry config virtualenvs.create false && \
     poetry install --no-dev --no-interaction --no-ansi
 
