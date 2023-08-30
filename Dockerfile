@@ -10,6 +10,7 @@ WORKDIR /code/
 COPY ./manage.py ./manage.py
 COPY ./poetry.lock ./poetry.lock
 COPY ./pyproject.toml ./pyproject.toml
+COPY ./README.md ./README.md
 COPY ./recipe_api/ ./recipe_api/
 # Move to apps dir
 COPY ./recipes/ ./recipes/
