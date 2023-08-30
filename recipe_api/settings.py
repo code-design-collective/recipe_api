@@ -10,7 +10,7 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ENV
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
 DATABASE_URL = config('DATABASE_URL')
 DATABASE_ENV = config('DATABASE_ENV')
 SECRET_KEY = config('SECRET_KEY')
