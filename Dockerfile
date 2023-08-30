@@ -14,14 +14,14 @@ COPY ./README.md ./README.md
 COPY ./recipe_api/ ./recipe_api/
 COPY ./apps/ ./apps/
 
-RUN apk add --no-cache postgresql-dev gcc musl-dev && \
-    pip install poetry && \
+RUN pip install poetry && \
     poetry config virtualenvs.create false && \
     poetry install --no-dev --no-interaction --no-ansi
 
-# RUN python manage.py makemigrations
-RUN python manage.py migrate
-
 EXPOSE 8080
 
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "recipe_api.wsgi:application"]
+# CMD ["gunicorn", "--bind", "0.0.0.0:8080", "recipe_api.wsgi:application"]
+
+CMD set -xe; \
+    python manage.py migrate --noinput; \
+    gunicorn recipe_api.wsgi:application --bind 0.0.0.0:8080
