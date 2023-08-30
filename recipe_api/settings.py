@@ -12,7 +12,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
-print(ALLOWED_HOSTS)
 
 # Application definition
 
