@@ -12,9 +12,10 @@ COPY ./poetry.lock ./poetry.lock
 COPY ./pyproject.toml ./pyproject.toml
 COPY ./README.md ./README.md
 COPY ./recipe_api/ ./recipe_api/
-# Move to apps dir
-COPY ./recipes/ ./recipes/
-COPY ./users/ ./users/
+COPY ./apps/ ./apps/
+# Moved to apps dir
+# COPY ./recipes/ ./recipes/
+# COPY ./users/ ./users/
 
 RUN pip install poetry && \
     poetry config virtualenvs.create false && \
