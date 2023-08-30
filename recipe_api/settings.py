@@ -11,7 +11,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ENV
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
-ENV = config('ENV')
+DATABASE_URL = config('DATABASE_URL')
+DATABASE_ENV = config('DATABASE_ENV')
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG')
 
@@ -60,24 +61,23 @@ WSGI_APPLICATION = 'recipe_api.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if (ENV == "local"):
+if (DATABASE_ENV == "prod"):
+    DATABASES = {
+        "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+    }
+else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
             "NAME": "recipe_db",
         }
     }
-# else:
-#     DATABASE_URL = os.getenv("DATABASE_URL")
-#     DATABASES = {
-#         "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
-#     }
+
+print(f'📀 DATABASE: {DATABASE_ENV}')
 
 
 # Password validation
-# https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -96,7 +96,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
@@ -108,13 +107,11 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Default primary key field type
-# https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
