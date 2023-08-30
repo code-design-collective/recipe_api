@@ -19,7 +19,7 @@ RUN apk add --no-cache postgresql-dev gcc musl-dev && \
     poetry config virtualenvs.create false && \
     poetry install --no-dev --no-interaction --no-ansi
 
-RUN python manage.py makemigrations
+# RUN python manage.py makemigrations
 RUN python manage.py migrate
 
 EXPOSE 8080
