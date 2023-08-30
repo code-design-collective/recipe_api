@@ -13,13 +13,13 @@ COPY ./pyproject.toml ./pyproject.toml
 COPY ./README.md ./README.md
 COPY ./recipe_api/ ./recipe_api/
 COPY ./apps/ ./apps/
-# Moved to apps dir
-# COPY ./recipes/ ./recipes/
-# COPY ./users/ ./users/
 
 RUN pip install poetry && \
     poetry config virtualenvs.create false && \
     poetry install --no-dev --no-interaction --no-ansi
+
+RUN python manage.py makemigrations
+RUN python manage.py migrate
 
 EXPOSE 8080
 
