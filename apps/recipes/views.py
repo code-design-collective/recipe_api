@@ -1,73 +1,63 @@
 import json
+
 from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect
 from django.views.decorators.csrf import csrf_exempt
-from .models import Recipe
-from .forms import RecipeForm
 
-@csrf_exempt
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+
+from .forms import RecipeForm
+from .models import Recipe
+from .serializers import RecipeSerializer
+
+@api_view(['GET'])
 def examples(request):
     json_file_path = settings.BASE_DIR / 'apps' / 'recipes' / 'sample.json'
     with open(json_file_path, 'r') as json_file:
         recipes = json.load(json_file)
+    serializer = RecipeSerializer(recipes, many=True)
 
-    return JsonResponse(recipes, safe=False)
+    return Response(serializer.data)
 
-@csrf_exempt
+@api_view(['GET'])
 def recipe_list(request):
-    print('RECIPE LIST')
+    print('GET ALL')
     recipes = Recipe.objects.all()
-    recipe_list = [{'id': recipe.id, 'title': recipe.title} for recipe in recipes]
-    return JsonResponse(recipe_list, safe=False)
+    serializer = RecipeSerializer(recipes, many=True)
+    return Response(serializer.data)
 
-@csrf_exempt
+@api_view(['GET'])
 def recipe_detail(request, pk):
-    print('RECIPE DETAIL')
+    print('GET DETAIL')
     recipe = get_object_or_404(Recipe, pk=pk)
-    recipe_data = {
-        'id': recipe.id,
-        'title': recipe.title,
-        'ingredients': recipe.ingredients,
-        'instructions': recipe.instructions,
-        'created_at': recipe.created_at,
-    }
-    return JsonResponse(recipe_data)
+    serializer = RecipeSerializer(recipe)
+    return Response(serializer.data)
 
-@csrf_exempt
+@api_view(['POST'])
 def recipe_create(request):
-    print('RECIPE CREATE')
-    if request.method == 'POST':
-        print(request.body)
-        data = json.loads(request.body)
-        print(request.body)
-        form = RecipeForm(data)
-        if form.is_valid():
-            form.save()
-            return JsonResponse({'message': 'Recipe created successfully'})
-        else:
-            return JsonResponse({'error': form.errors}, status=400)
-    return JsonResponse({'error': 'Invalid request method'}, status=405)
+    print('POST')
+    serializer = RecipeSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({'message': 'Recipe created successfully'}, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@csrf_exempt
+@api_view(['PUT'])
 def recipe_update(request, pk):
-    print('RECIPE UPDATE')
+    print('PUT')
     recipe = get_object_or_404(Recipe, pk=pk)
-    if request.method == 'PUT':
-        data = json.loads(request.body)
-        form = RecipeForm(data, instance=recipe)
-        if form.is_valid():
-            form.save()
-            return JsonResponse({'message': 'Recipe updated successfully'})
-        else:
-            return JsonResponse({'error': form.errors}, status=400)
-    return JsonResponse({'error': 'Invalid request method'}, status=405)
+    serializer = RecipeSerializer(recipe, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response({'message': 'Recipe updated successfully'})
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@csrf_exempt
+@api_view(['DELETE'])
 def recipe_delete(request, pk):
-    print('RECIPE DELETE')
+    print('DELETE')
     recipe = get_object_or_404(Recipe, pk=pk)
-    if request.method == 'DELETE':
-        recipe.delete()
-        return JsonResponse({'message': 'Recipe deleted successfully'})
-    return JsonResponse({'error': 'Invalid request method'}, status=405)
+    recipe.delete()
+    return Response({'message': 'Recipe deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
