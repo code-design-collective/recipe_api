@@ -24,21 +24,18 @@ def examples(request):
 
 @api_view(['GET'])
 def recipe_list(request):
-    print('GET ALL')
     recipes = Recipe.objects.all()
     serializer = RecipeSerializer(recipes, many=True)
     return Response(serializer.data)
 
 @api_view(['GET'])
 def recipe_detail(request, pk):
-    print('GET DETAIL')
     recipe = get_object_or_404(Recipe, pk=pk)
     serializer = RecipeSerializer(recipe)
     return Response(serializer.data)
 
 @api_view(['POST'])
 def recipe_create(request):
-    print('POST')
     serializer = RecipeSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
@@ -47,7 +44,6 @@ def recipe_create(request):
 
 @api_view(['PUT'])
 def recipe_update(request, pk):
-    print('PUT')
     recipe = get_object_or_404(Recipe, pk=pk)
     serializer = RecipeSerializer(recipe, data=request.data)
     if serializer.is_valid():
@@ -57,7 +53,6 @@ def recipe_update(request, pk):
 
 @api_view(['DELETE'])
 def recipe_delete(request, pk):
-    print('DELETE')
     recipe = get_object_or_404(Recipe, pk=pk)
     recipe.delete()
     return Response({'message': 'Recipe deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
