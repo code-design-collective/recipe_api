@@ -1,13 +1,9 @@
 from django.contrib import admin
-from django.urls import include, path, re_path
-from . import views
+from django.urls import include, path
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path("api/recipes/", include("apps.recipes.urls")),
-    path('api-auth/', include('rest_framework.urls')),
     path("admin/", admin.site.urls),
-    re_path('login', views.login),
-    re_path('signup', views.signup),
-    re_path('test_token', views.test_token),
+    path('api-auth/', include('rest_framework.urls')),
+    path("api/recipes/", include("apps.recipes.urls")),
+    path('users/', include('apps.users.urls')),  #
 ]
