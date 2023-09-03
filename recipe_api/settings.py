@@ -77,7 +77,7 @@ else:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": "recipe_db",
+            "NAME": "recipe_db_2",
         }
     }
 
@@ -124,3 +124,4 @@ if DEBUG == False:
 # Default primary key field type
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+AUTH_USER_MODEL = "users.User"
