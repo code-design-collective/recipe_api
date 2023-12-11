@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  www:
+    image: recipe_api
+    build: .
+    container_name: recipe_api
+    volumes:
+      - ./recipe_api:/code/recipe_api
+      - ./apps:/code/apps
+      - ./.var/media:/srv/media
+    command: gunicorn -b 0.0.0.0:8080 -w 4 recipe_api.wsgi --reload
+    ports:
+      - 8080:8080
+    env_file:
+      - .env
+  db:
+    image: postgres
+    container_name: recipe-db
+    environment:
+        POSTGRES_PASSWORD: root
+        POSTGRES_DB: recipe_api
+    volumes:
+      - db-data:/var/lib/postgresql/data 
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+
+volumes:
+  db-data:

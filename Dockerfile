@@ -5,6 +5,17 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV PYTHONIOENCODING utf8
 ENV PYTHONUNBUFFERED 1
 
+RUN apk add --no-cache shadow
+
+RUN apk update && apk add --no-cache \
+    build-base \
+    postgresql-dev \
+    mariadb-connector-c-dev \
+    jpeg-dev \
+    zlib-dev \
+    libwebp-dev \
+    libffi-dev
+
 WORKDIR /code/
 
 COPY ./manage.py ./manage.py

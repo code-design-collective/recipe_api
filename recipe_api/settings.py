@@ -68,18 +68,9 @@ WSGI_APPLICATION = 'recipe_api.wsgi.application'
 
 
 # Database
-
-if (DATABASE_ENV == "prod"):
-    DATABASES = {
-        "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.postgresql_psycopg2",
-            "NAME": "recipe_db_2",
-        }
-    }
+DATABASES = {
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
+}
 
 print(f'📀 DATABASE: {DATABASE_ENV}')
 
